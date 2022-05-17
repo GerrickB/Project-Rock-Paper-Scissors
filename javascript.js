@@ -5,16 +5,16 @@ function computerPlay() {
 
     switch (choice) {
         case 0:
-            console.log('ROCK');
+            return 'ROCK';
             break;
         case 1:
-            console.log('PAPER');
+            return 'PAPER';
             break;
         case 2:
-            console.log('SCISSORS');
+            return 'SCISSORS';
             break;
         default:
-            console.log('ERROR');
+            return'ERROR';
     }
 
     console.log(choice);
@@ -27,36 +27,36 @@ function playRound(playerSelection, computerSelection) {
 
     switch (true) {
         case (player === 'ROCK') && (computer === 'PAPER'):
-            console.log('You Lose! Paper beats Rock');
+            return 'You Lose! Paper beats Rock';
             break;
         case (player === 'ROCK') && (computer === 'SCISSORS'):
-            console.log('You Won! Rock beats Scissors');
+            return 'You Won! Rock beats Scissors';
             break;
         case (player === 'ROCK') && (computer === 'ROCK'):
-            console.log('Tie');
+            return 'Tie';
             break;
         
         case (player === 'PAPER') && (computer === 'ROCK'):
-            console.log('You Won! Paper beats Rock');
+            return 'You Won! Paper beats Rock';
             break;
         case (player === 'PAPER') && (computer === 'SCISSORS'):
-            console.log('You Lose! Scissors beats Paper');
+            return 'You Lose! Scissors beats Paper';
             break;
         case (player === 'PAPER') && (computer === 'PAPER'):
-            console.log('Tie');
+            return 'Tie';
             break;
 
         case (player === 'SCISSORS') && (computer === 'PAPER'):
-            console.log('You Won! Scissors beats Paper');
+            return 'You Won! Scissors beats Paper';
             break;
         case (player === 'SCISSORS') && (computer === 'ROCK'):
-            console.log('You Lose! Rock beats Scissors');
+            return 'You Lose! Rock beats Scissors';
             break;
         case (player === 'SCISSORS') && (computer === 'ROCK'):
-            console.log('You Lose! Rock beats Scissors');
+            return 'You Lose! Rock beats Scissors';
             break;
         default:
-            console.log('ERROR');
+            return 'ERROR';
     }
     
 }
