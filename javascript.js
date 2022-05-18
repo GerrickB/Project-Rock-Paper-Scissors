@@ -17,7 +17,6 @@ function computerPlay() {
             return'ERROR';
     }
 
-    console.log(choice);
 }
 
 // Accepts player and computer choice
@@ -61,5 +60,26 @@ function playRound(playerSelection, computerSelection) {
     
 }
 
-// computerPlay();
-playRound('SCIssoRS', 'RoCK');
+// Determines who is the winner or loser
+function winCounter(playerSelection, computerSelection) {
+
+}
+
+//
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt('Rock, Paper, or Scissors?')
+        let computerSelection = computerPlay();
+
+        console.log((playRound(playerSelection, computerSelection)));
+    }
+}
+
+game();
+
+// Testing
+//const playerSelection = 'rock';
+//const computerSelection = computerPlay();
+//console.log(playerSelection);
+//console.log(computerSelection);
+//console.log(playRound(playerSelection, computerSelection));
