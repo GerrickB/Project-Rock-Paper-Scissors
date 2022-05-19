@@ -61,7 +61,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Determines who is the winner or loser
-function winCounter(playerSelection, computerSelection) {
+function getResults(playerSelection, computerSelection) {
     let player = playerSelection.toUpperCase();
     let computer = computerSelection.toUpperCase();
 
@@ -101,12 +101,12 @@ function winCounter(playerSelection, computerSelection) {
 
 }
 
-//
-function game() {
+//Plays five rounds of Rock Paper Scissors
+function playGame() {
     for (let i = 0, wins = 0, loses = 0, ties = 0; i < 5; i++) {
         let playerSelection = prompt('Rock, Paper, or Scissors?')
         let computerSelection = computerPlay();
-        let result = winCounter(playerSelection, computerSelection);
+        let result = getResults(playerSelection, computerSelection);
 
         console.log((playRound(playerSelection, computerSelection)));
 
@@ -129,11 +129,4 @@ function game() {
     // }
     }
 
-game();
-
-// Testing
-//const playerSelection = 'rock';
-//const computerSelection = computerPlay();
-//console.log(playerSelection);
-//console.log(computerSelection);
-//console.log(playRound(playerSelection, computerSelection));
+playGame();
