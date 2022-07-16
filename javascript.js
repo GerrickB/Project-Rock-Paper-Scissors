@@ -124,16 +124,17 @@ function playGame(choice) {
 let wins = 0;
 let loses = 0;
 let ties = 0;
-let result = 0;
+let games = 0;
 let round = '';
 
 const buttons = document.querySelectorAll('button');
 const score = document.querySelector('#score');
+const result = document.querySelector('#score');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         round = playGame(button.id)
-        
+        games++;
         if (round == 'Win'){
             wins++;
         }
@@ -143,8 +144,23 @@ buttons.forEach((button) => {
         if (round == 'Tie'){
             ties++;
         }
+
+        if (games == 5){
+            document.getElementById('rock').disabled = true;
+            document.getElementById('paper').disabled = true;
+            document.getElementById('scissors').disabled = true;
+        }
         
         score.textContent = 'Wins: ' + wins + ' Loses: ' + loses + ' Tie: ' + ties;
+        if (games == 5){
+            if (wins > loses) {
+                result.textContent = ' You Won! Wins: ' + wins + ' Loses: ' + loses; 
+            } else if (wins < loses) {
+                result.textContent = ' You Lost! Wins: ' + wins + ' Loses: ' + loses;
+            } else {
+                result.textContent = ' Tied! Wins: ' + wins + ' Loses: ' + loses;
+            }
+        }
     });
 });
 
