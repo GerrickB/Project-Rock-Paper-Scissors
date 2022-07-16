@@ -1,6 +1,6 @@
 // Randomly returns either Rock, Paper or Scissors
 function computerPlay() {
-    
+
     let choice = Math.floor(Math.random() * 3);
 
     switch (choice) {
@@ -14,7 +14,7 @@ function computerPlay() {
             return 'SCISSORS';
             break;
         default:
-            return'ERROR';
+            return 'ERROR';
     }
 
 }
@@ -34,7 +34,7 @@ function playRound(playerSelection, computerSelection) {
         case (player === 'ROCK') && (computer === 'ROCK'):
             return 'Tie';
             break;
-        
+
         case (player === 'PAPER') && (computer === 'ROCK'):
             return 'You Won! Paper beats Rock';
             break;
@@ -57,7 +57,7 @@ function playRound(playerSelection, computerSelection) {
         default:
             return 'ERROR';
     }
-    
+
 }
 
 // Determines who is the winner or loser
@@ -75,7 +75,7 @@ function getResults(playerSelection, computerSelection) {
         case (player === 'ROCK') && (computer === 'ROCK'):
             return 'Tie';
             break;
-        
+
         case (player === 'PAPER') && (computer === 'ROCK'):
             return 'Win';
             break;
@@ -102,24 +102,34 @@ function getResults(playerSelection, computerSelection) {
 }
 
 //Plays five rounds of Rock Paper Scissors
-function playGame() {
-    for (let i = 0, wins = 0, loses = 0, ties = 0; i < 5; i++) {
-        let playerSelection = prompt('Rock, Paper, or Scissors?')
-        let computerSelection = computerPlay();
-        let result = getResults(playerSelection, computerSelection);
+function playGame(choice) {
+    //for (let i = 0, wins = 0, loses = 0, ties = 0; i < 5; i++) 
+    //let playerSelection = prompt('Rock, Paper, or Scissors?')
+    let wins = 0;
+    let loses = 0;
+    let ties = 0;
+    let playerSelection = choice;
+    let computerSelection = computerPlay();
+    let result = getResults(playerSelection, computerSelection);
 
-        console.log((playRound(playerSelection, computerSelection)));
+    console.log((playRound(playerSelection, computerSelection)));
 
-        if (result === 'Win') {
-            wins++;
-        } else if (result === 'Lose') {
-            loses++;
-        } else {
-            ties++;
-        }
-
-        console.log('Wins: ' + wins + ' Loses: ' + loses + ' Tie: ' + ties)
+    if (result === 'Win') {
+        wins++;
+    } else if (result === 'Lose') {
+        loses++;
+    } else {
+        ties++;
     }
-    }
 
-playGame();
+    console.log('Wins: ' + wins + ' Loses: ' + loses + ' Tie: ' + ties)
+
+}
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playGame(button.id);
+    });
+});
