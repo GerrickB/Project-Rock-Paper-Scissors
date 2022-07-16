@@ -120,13 +120,6 @@ function playGame() {
 
         console.log('Wins: ' + wins + ' Loses: ' + loses + ' Tie: ' + ties)
     }
-    // if (wins > loses) {
-    //     console.log('You won the game!');
-    // } else if (loses < wins) {
-    //     console.log('You lost the game');
-    // } else {
-    //     console.log('Tied')
-    // }
     }
 
 playGame();
