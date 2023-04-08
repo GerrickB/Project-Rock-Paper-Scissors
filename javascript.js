@@ -1,5 +1,5 @@
 // Randomly returns either Rock, Paper or Scissors
-function computerPlay() {
+const computerPlay = () => {
 
     let choice = Math.floor(Math.random() * 3);
 
@@ -17,10 +17,10 @@ function computerPlay() {
             return 'ERROR';
     }
 
-}
+};
 
 // Accepts player and computer choice
-function playRound(playerSelection, computerSelection) {
+const playRound = (playerSelection, computerSelection) => {
     let player = playerSelection.toUpperCase();
     let computer = computerSelection.toUpperCase();
 
@@ -61,7 +61,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Determines who is the winner or loser
-function getResults(playerSelection, computerSelection) {
+const getResults = (playerSelection, computerSelection) => {
     let player = playerSelection.toUpperCase();
     let computer = computerSelection.toUpperCase();
 
@@ -102,7 +102,7 @@ function getResults(playerSelection, computerSelection) {
 }
 
 //Plays five rounds of Rock Paper Scissors
-function playGame(choice) {
+const playGame = choice => {
     //for (let i = 0, wins = 0, loses = 0, ties = 0; i < 5; i++) 
     //let playerSelection = prompt('Rock, Paper, or Scissors?')
     let playerSelection = choice;
