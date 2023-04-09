@@ -75,7 +75,7 @@ const getResults = (playerSelection, computerSelection) => {
             return 'Lose';
         case (player === 'SCISSORS') && (computer === 'ROCK'):
             return 'Tie';
-            
+
         default:
             return 'ERROR';
     }
@@ -89,7 +89,7 @@ const playGame = choice => {
     let computerSelection = computerPlay();
     let result = getResults(playerSelection, computerSelection);
 
-    console.log((playRound(playerSelection, computerSelection)));
+    roundResult.textContent = playRound(playerSelection, computerSelection);
 
     if (result === 'Win') {
         return 'Win';
@@ -103,7 +103,8 @@ const playGame = choice => {
 
 const buttons = document.querySelectorAll('button');
 const score = document.querySelector('#score');
-const result = document.querySelector('#result');
+const roundResult = document.querySelector('#round-result');
+const finalResult = document.querySelector('#final-result');
 
 let wins = 0;
 let loses = 0;
@@ -135,11 +136,11 @@ buttons.forEach((button) => {
         
         if (games == 5){
             if (wins > loses) {
-                result.textContent = ' You Won! Wins: ' + wins + ' Loses: ' + loses; 
+                finalResult.textContent = ' You Won!'; 
             } else if (wins < loses) {
-                result.textContent = ' You Lost! Wins: ' + wins + ' Loses: ' + loses;
+                finalResult.textContent = ' You Lost!';
             } else {
-                result.textContent = ' Tied! Wins: ' + wins + ' Loses: ' + loses;
+                finalResult.textContent = ' Tied! Wins: ' + wins + ' Loses: ' + loses;
             }
         }
     });
