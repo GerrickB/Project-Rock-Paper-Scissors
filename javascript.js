@@ -6,13 +6,10 @@ const computerPlay = () => {
     switch (choice) {
         case 0:
             return 'ROCK';
-            break;
         case 1:
             return 'PAPER';
-            break;
         case 2:
             return 'SCISSORS';
-            break;
         default:
             return 'ERROR';
     }
