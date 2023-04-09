@@ -21,9 +21,10 @@ const computerPlay = () => {
 
 // Accepts player and computer choice
 const playRound = (playerSelection, computerSelection) => {
-    let player = playerSelection.toUpperCase();
-    let computer = computerSelection.toUpperCase();
+    let playerChoice = playerSelection.toUpperCase();
+    let computerChoice = computerSelection.toUpperCase();
 
+    /*
     switch (true) {
         case (player === 'ROCK') && (computer === 'PAPER'):
             return 'You Lose! Paper beats Rock';
@@ -56,6 +57,32 @@ const playRound = (playerSelection, computerSelection) => {
             break;
         default:
             return 'ERROR';
+    }
+    */
+
+    if (playerChoice === computerChoice) {
+        return 'Tie';
+    }
+    if (playerChoice === 'ROCK') {
+        if (computerChoice === 'PAPER') {
+            return `You lost! Computer chose ${computerChoice} and beat your ${playerChoice}`;
+        } else {
+            return `You won! Your ${playerChoice} beat computer's ${computerChoice}`;
+        }
+    }
+    if (playerChoice === 'PAPER') {
+        if (computerChoice === 'SCISSORS') {
+            return `You lost! Computer chose ${computerChoice} and beat your ${playerChoice}`;
+        } else {
+            return `You won! Your ${playerChoice} beat computer's ${computerChoice}`;
+        }
+    }
+    if (playerChoice === 'SCISSORS') {
+        if (computerChoice === 'ROCK') {
+            return `You lost! Computer chose ${computerChoice} and beat your ${playerChoice}`;
+        } else {
+            return `You won! Your ${playerChoice} beat computer's ${computerChoice}`;
+        }
     }
 
 }
@@ -103,8 +130,7 @@ const getResults = (playerSelection, computerSelection) => {
 
 //Plays five rounds of Rock Paper Scissors
 const playGame = choice => {
-    //for (let i = 0, wins = 0, loses = 0, ties = 0; i < 5; i++) 
-    //let playerSelection = prompt('Rock, Paper, or Scissors?')
+    
     let playerSelection = choice;
     let computerSelection = computerPlay();
     let result = getResults(playerSelection, computerSelection);
@@ -121,15 +147,15 @@ const playGame = choice => {
 
 }
 
+const buttons = document.querySelectorAll('button');
+const score = document.querySelector('#score');
+const result = document.querySelector('#result');
+
 let wins = 0;
 let loses = 0;
 let ties = 0;
 let games = 0;
 let round = '';
-
-const buttons = document.querySelectorAll('button');
-const score = document.querySelector('#score');
-const result = document.querySelector('#score');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -145,13 +171,14 @@ buttons.forEach((button) => {
             ties++;
         }
 
+        score.textContent = 'Wins: ' + wins + ' Loses: ' + loses + ' Tie: ' + ties;
+
         if (games == 5){
             document.getElementById('rock').disabled = true;
             document.getElementById('paper').disabled = true;
             document.getElementById('scissors').disabled = true;
         }
         
-        score.textContent = 'Wins: ' + wins + ' Loses: ' + loses + ' Tie: ' + ties;
         if (games == 5){
             if (wins > loses) {
                 result.textContent = ' You Won! Wins: ' + wins + ' Loses: ' + loses; 
@@ -163,6 +190,10 @@ buttons.forEach((button) => {
         }
     });
 });
+
+
+
+
 
 
 
