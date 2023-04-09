@@ -56,33 +56,26 @@ const getResults = (playerSelection, computerSelection) => {
     switch (true) {
         case (player === 'ROCK') && (computer === 'PAPER'):
             return 'Lose';
-            break;
         case (player === 'ROCK') && (computer === 'SCISSORS'):
-            return 'Win';
-            break;
+            return 'Win';           
         case (player === 'ROCK') && (computer === 'ROCK'):
             return 'Tie';
-            break;
+            
 
         case (player === 'PAPER') && (computer === 'ROCK'):
-            return 'Win';
-            break;
+            return 'Win';           
         case (player === 'PAPER') && (computer === 'SCISSORS'):
-            return 'Lose';
-            break;
+            return 'Lose';    
         case (player === 'PAPER') && (computer === 'PAPER'):
             return 'Tie';
-            break;
 
         case (player === 'SCISSORS') && (computer === 'PAPER'):
             return 'Win';
-            break;
         case (player === 'SCISSORS') && (computer === 'ROCK'):
             return 'Lose';
-            break;
         case (player === 'SCISSORS') && (computer === 'ROCK'):
             return 'Tie';
-            break;
+            
         default:
             return 'ERROR';
     }
